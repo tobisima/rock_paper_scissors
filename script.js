@@ -1,7 +1,7 @@
 function computerPlay(min, max) {
   let result = Math.floor(Math.random() * (max-min) ) + min;
     if (result === 1) {
-    return "Rock"
+        return "Rock"
     } else if(result === 2) {
         return "Paper"
     } else {
@@ -10,17 +10,20 @@ function computerPlay(min, max) {
 }
 
 function playRound(playerSelection, computerSelection) {
-  if (playerSelection =="Rock" && computerSelection =="Scissors" ||
-      playerSelection =="Paper" && computerSelection =="Rock" ||
-      playerSelection =="Scissors" && computerSelection =="Paper") {
-       return "You Win! " + playerSelection + " beats " + computerSelection;
+  let playerSelectionI = playerSelection.charAt(0).toUpperCase() + playerSelection.toLowerCase().slice(1);
+  console.log(playerSelectionI);
+  if (playerSelectionI =="Rock" && computerSelection =="Scissors" ||
+      playerSelectionI =="Paper" && computerSelection =="Rock" ||
+      playerSelectionI =="Scissors" && computerSelection =="Paper") {
+       return "You Win! " + playerSelectionI + " beats " + computerSelection;
     }
-  else if (playerSelection =="Scissors" && computerSelection =="Rock" ||
-           playerSelection =="Rock" && computerSelection =="Paper" ||
-           playerSelection =="Paper" && computerSelection =="Scissors") {
-      return "You Lose! " + computerSelection + " beats " + playerSelection;
+  else if (playerSelectionI =="Scissors" && computerSelection =="Rock" ||
+           playerSelectionI =="Rock" && computerSelection =="Paper" ||
+           playerSelectionI =="Paper" && computerSelection =="Scissors") {
+      return "You Lose! " + computerSelection + " beats " + playerSelectionI;
     } 
       else {
         return "Draw! Play Again"
       }
 }
+console.log (playRound("roCK", "Paper"))
