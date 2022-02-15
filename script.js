@@ -1,5 +1,6 @@
-function computerPlay(min, max) {
-  let result = Math.floor(Math.random() * (max-min) ) + min;
+function computerPlay() {
+  const result = Math.floor(Math.random() * 3);
+
     if (result === 1) {
         return "Rock"
     } else if(result === 2) {
@@ -10,8 +11,10 @@ function computerPlay(min, max) {
 }
 
 function playRound(playerSelection, computerSelection) {
-  let playerSelectionI = playerSelection.charAt(0).toUpperCase() + playerSelection.toLowerCase().slice(1);
-  console.log(playerSelectionI);
+  const playerSelectionI = playerSelection.charAt(0).toUpperCase() + playerSelection.toLowerCase().slice(1);
+    
+  console.log(playerSelectionI, computerSelection);
+  
   if (playerSelectionI =="Rock" && computerSelection =="Scissors" ||
       playerSelectionI =="Paper" && computerSelection =="Rock" ||
       playerSelectionI =="Scissors" && computerSelection =="Paper") {
@@ -22,8 +25,32 @@ function playRound(playerSelection, computerSelection) {
            playerSelectionI =="Paper" && computerSelection =="Scissors") {
       return "You Lose! " + computerSelection + " beats " + playerSelectionI;
     } 
-      else {
-        return "Draw! Play Again"
+      else if (playerSelectionI == computerSelection) {
+        return "Draw!"
       }
 }
-console.log (playRound("roCK", "Paper"))
+
+function game(playerScore, computerScore) {
+   for (let i = 0; i < 5; i++) {
+     const playRoundResult = playRound(prompt(), computerPlay());
+    
+       if (playRoundResult.charAt(4) == "W") {
+         ++playerScore;
+      } else if (playRoundResult.charAt(4) == "L") {
+         ++computerScore;
+      } else {}
+
+          console.log(playRoundResult); 
+          console.log("score: " + playerScore, computerScore);
+    }
+  
+      if (playerScore > computerScore) {
+      return "Game Over! You Win!"
+    } else if (playerScore < computerScore) {
+      return "Game Over! You Lose!"
+    } else {
+      return "Game Over! Draw!"
+    }
+   }
+  
+console.log(game(0, 0));
