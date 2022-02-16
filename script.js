@@ -1,5 +1,5 @@
 function computerPlay() {
-  const result = Math.floor(Math.random() * 3);
+ const result = Math.floor(Math.random() * 3);
 
     if (result === 1) {
         return "Rock"
@@ -11,9 +11,9 @@ function computerPlay() {
 }
 
 function playRound(playerSelection, computerSelection) {
-  const playerSelectionI = playerSelection.charAt(0).toUpperCase() + playerSelection.toLowerCase().slice(1);
-     
-  console.log(playerSelectionI, computerSelection);
+   const playerSelectionI = playerSelection.charAt(0).toUpperCase() + playerSelection.toLowerCase().slice(1);
+  
+   console.log(playerSelectionI, computerSelection);
   
   if (playerSelectionI =="Rock" && computerSelection =="Scissors" ||
       playerSelectionI =="Paper" && computerSelection =="Rock" ||
@@ -28,7 +28,7 @@ function playRound(playerSelection, computerSelection) {
 
 function game(playerScore, computerScore) {
   for (let i = 0; i < 5; i++) {
-     const playRoundResult = playRound(prompt(), computerPlay());
+     const playRoundResult = playRound( prompt("Enter 'Rock' or 'Paper' or 'Scissors'"), computerPlay() );
     
       if (playRoundResult.charAt(4) == "W") {
         ++playerScore;
@@ -40,13 +40,13 @@ function game(playerScore, computerScore) {
         console.log("score: " + playerScore, computerScore);
   }
   
-  if (playerScore > computerScore) {
-      return "Game Over! You Win!"
-  } else if (playerScore < computerScore) {
-      return "Game Over! You Lose!"
-  } else {
-      return "Game Over! Draw!"
-  }
+      if (playerScore > computerScore) {
+          return "Game Over! You Win!"
+      } else if (playerScore < computerScore) {
+          return "Game Over! You Lose!"
+      } else {
+          return "Game Over! Draw!"
+    }
 }
   
 console.log(game(0, 0));
