@@ -12,45 +12,41 @@ function computerPlay() {
 
 function playRound(playerSelection, computerSelection) {
   const playerSelectionI = playerSelection.charAt(0).toUpperCase() + playerSelection.toLowerCase().slice(1);
-    
+     
   console.log(playerSelectionI, computerSelection);
   
   if (playerSelectionI =="Rock" && computerSelection =="Scissors" ||
       playerSelectionI =="Paper" && computerSelection =="Rock" ||
       playerSelectionI =="Scissors" && computerSelection =="Paper") {
-       return "You Win! " + playerSelectionI + " beats " + computerSelection;
-    }
-  else if (playerSelectionI =="Scissors" && computerSelection =="Rock" ||
-           playerSelectionI =="Rock" && computerSelection =="Paper" ||
-           playerSelectionI =="Paper" && computerSelection =="Scissors") {
+      return "You Win! " + playerSelectionI + " beats " + computerSelection;
+  } else if (playerSelectionI == computerSelection) {
+      return "Draw!"
+  } else {
       return "You Lose! " + computerSelection + " beats " + playerSelectionI;
-    } 
-      else if (playerSelectionI == computerSelection) {
-        return "Draw!"
-      }
+  }
 }
 
 function game(playerScore, computerScore) {
-   for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 5; i++) {
      const playRoundResult = playRound(prompt(), computerPlay());
     
-       if (playRoundResult.charAt(4) == "W") {
-         ++playerScore;
+      if (playRoundResult.charAt(4) == "W") {
+        ++playerScore;
       } else if (playRoundResult.charAt(4) == "L") {
-         ++computerScore;
+        ++computerScore;
       } else {}
 
-          console.log(playRoundResult); 
-          console.log("score: " + playerScore, computerScore);
-    }
+        console.log(playRoundResult); 
+        console.log("score: " + playerScore, computerScore);
+  }
   
-      if (playerScore > computerScore) {
+  if (playerScore > computerScore) {
       return "Game Over! You Win!"
-    } else if (playerScore < computerScore) {
+  } else if (playerScore < computerScore) {
       return "Game Over! You Lose!"
-    } else {
+  } else {
       return "Game Over! Draw!"
-    }
-   }
+  }
+}
   
 console.log(game(0, 0));
