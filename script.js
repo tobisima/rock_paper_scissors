@@ -30,16 +30,16 @@ function playRound(playerSelection, computerSelection) {
 
 function game(playerScore, computerScore) {
   for (let i = 0; i < 5; i++) {
-    const playRoundResult = playRound(
-        prompt("Enter 'Rock' or 'Paper' or 'Scissors'"), computerPlay() );
+    const roundResult = playRound(
+        prompt("Enter 'Rock' or 'Paper' or 'Scissors'"), computerPlay());
     
-    if (playRoundResult.charAt(4) == "W") {
+    if (roundResult.charAt(4) == "W") {
         ++playerScore;
-    } else if (playRoundResult.charAt(4) == "L") {
+    } else if (roundResult.charAt(4) == "L") {
         ++computerScore;
-    } else {}
+    }    
 
-        console.log(playRoundResult); 
+        console.log(roundResult); 
         console.log("score: " + playerScore, computerScore);
   }
   
