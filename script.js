@@ -12,19 +12,20 @@ function computerPlay() {
 }
 
 function playRound(playerSelection, computerSelection) {
-   const playerSelectionI = playerSelection.charAt(0).toUpperCase() +
+    
+         playerSelection = playerSelection.charAt(0).toUpperCase() +
          playerSelection.toLowerCase().slice(1);
   
-         console.log(playerSelectionI, computerSelection);
+         console.log(playerSelection, computerSelection);
   
-     if (playerSelectionI =="Rock" && computerSelection =="Scissors" ||
-         playerSelectionI =="Paper" && computerSelection =="Rock" ||
-         playerSelectionI =="Scissors" && computerSelection =="Paper") {
-     return "You Win! " + playerSelectionI + " beats " + computerSelection;
-     } else if (playerSelectionI == computerSelection) {
+     if (playerSelection =="Rock" && computerSelection =="Scissors" ||
+         playerSelection =="Paper" && computerSelection =="Rock" ||
+         playerSelection =="Scissors" && computerSelection =="Paper") {
+     return "You Win! " + playerSelection + " beats " + computerSelection;
+     } else if (playerSelection == computerSelection) {
       return "Draw!"
      } else {
-      return "You Lose! " + computerSelection + " beats " + playerSelectionI;
+      return "You Lose! " + computerSelection + " beats " + playerSelection;
   }
 }
 
