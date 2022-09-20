@@ -9,7 +9,7 @@ function computerPlay() {
 function playRound(playerSelection, computerSelection) {
 
          playerSelection = playerSelection.charAt(0).toUpperCase() +
-         playerSelection.toLowerCase().slice(1);
+                           playerSelection.toLowerCase().slice(1);
 
          console.log(playerSelection, computerSelection);
 
@@ -26,7 +26,7 @@ function game(playerScore, computerScore) {
     for (let i = 0; i < 5; i++) {
 
          const roundResult = playRound(prompt(
-               "Enter 'Rock' or 'Paper' or 'Scissors'"), computerPlay());
+               "Enter 'Rock' or 'Paper' or 'Scissors'"),computerPlay());
     
          roundResult.charAt(4) == "W" ?
          ++playerScore :
